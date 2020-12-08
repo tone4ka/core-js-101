@@ -27,8 +27,11 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  if (!(num % 3 || num % 5)) return 'FizzBuzz';
+  if (!(num % 3)) return 'Fizz';
+  if (!(num % 5)) return 'Buzz';
+  return num;
 }
 
 
@@ -43,8 +46,8 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  return n ? n * getFactorial(n - 1) : 1;
 }
 
 
@@ -60,8 +63,12 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  let res = 0;
+  for (let i = n1; i <= n2; i += 1) {
+    res += i;
+  }
+  return res;
 }
 
 
@@ -80,8 +87,9 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  if (a < b * c && b < a * c && c < a * b) return true;
+  return false;
 }
 
 
@@ -117,8 +125,13 @@ function isTriangle(/* a, b, c */) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(rect1, rect2) {
+  const topMax = Math.max(rect1.top, rect2.top);
+  const leftMax = Math.max(rect1.left, rect2.left);
+  const bottomMin = Math.min((rect1.top + rect1.height), (rect2.top + rect2.height));
+  const rightMin = Math.min((rect1.left + rect1.width), (rect2.left + rect2.width));
+  if (bottomMin > topMax && rightMin > leftMax) return true;
+  return false;
 }
 
 
@@ -148,8 +161,11 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  if ((point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2 < circle.radius ** 2) {
+    return true;
+  }
+  return false;
 }
 
 
