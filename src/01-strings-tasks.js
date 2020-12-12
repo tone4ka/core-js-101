@@ -230,7 +230,8 @@ function getRectangleString(w, h) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* fjfj */) {
+
+function encodeToRot13(/* str */) {
   throw new Error('Not implemented');
 }
 
